@@ -5,6 +5,7 @@ import Loader from '../../components/Loader/Loader';
 import Cast from '../Cast/Cast';
 import Reviews from '../Reviews/Reviews';
 import styles from './MovieDetails.module.css';
+import { BASE_URL, API_KEY, BASE_LANG } from 'components/constants/Api';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -17,11 +18,11 @@ const MovieDetails = () => {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}`,
+          `${BASE_URL}/movie/${movieId}`,
           {
             params: {
-              language: 'uk-UA',
-              api_key: '47b0a612b169acf1eb58a4d87a2b2bdd',
+              language: BASE_LANG,
+              api_key: API_KEY,
             },
           }
         );
@@ -51,7 +52,7 @@ const MovieDetails = () => {
     );
   }
 
-  const backLink = location.state?.from || '/movies'; // Виправлено тут
+  const backLink = location.state?.from || '/movies';
 
   return (
     <div>
@@ -94,6 +95,8 @@ const MovieDetails = () => {
                     </span>
                   </div>
                   <h4>{movieDetails.tagline}</h4>
+
+
 
                   <div>
                     <h4>Rating:</h4> {movieDetails.vote_average.toFixed(1)}

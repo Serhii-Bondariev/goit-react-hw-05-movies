@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './Movies.module.css';
 import DefaultPoster from 'components/DefaultPoster/DefaultPoster';
 import SearchForm from 'components/SearchForm/SearchForm';
+import { API_KEY, BASE_LANG, BASE_URL,MOVIE_POSTER_URL } from 'components/constants/Api';
 
 const Movies = () => {
   const [searchResults, setSearchResults] = useState(() => {
@@ -16,11 +17,11 @@ const Movies = () => {
   const fetchMovies = async (searchQuery) => {
     try {
       const response = await axios.get(
-        'https://api.themoviedb.org/3/search/movie',
+        `${BASE_URL}/search/movie`,
         {
           params: {
-            language: 'uk-UA',
-            api_key: '47b0a612b169acf1eb58a4d87a2b2bdd',
+            language: BASE_LANG,
+            api_key: API_KEY,
             query: searchQuery,
           },
         }
@@ -51,7 +52,7 @@ const Movies = () => {
   };
 
   return (
-    <div className={styles.moviesContainer}>
+    <div>
       <ToastContainer />
       <Link className={styles.moviesSearchBtn} to="/">
         Go back
@@ -67,7 +68,7 @@ const Movies = () => {
                   {movie.poster_path ? (
                     <img
                       className="movies_img"
-                      src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                      src={`${MOVIE_POSTER_URL}${movie.poster_path}`}
                       alt={movie.title || movie.name}
                     />
                   ) : (

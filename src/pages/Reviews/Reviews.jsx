@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
 import styled from './Reviews.module.css';
+import { API_KEY , BASE_URL , BASE_LANG} from '../../components/constants/Api';
 
 const Reviews = ({ movieId }) => {
   const [reviews, setReviews] = useState([]);
@@ -11,11 +12,11 @@ const Reviews = ({ movieId }) => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews`,
+        `${BASE_URL}/movie/${movieId}/reviews`,
           {
             params: {
-              language: 'en-US',
-              api_key: '47b0a612b169acf1eb58a4d87a2b2bdd',
+              language: BASE_LANG,
+              api_key: API_KEY,
             },
           }
         );
@@ -31,7 +32,7 @@ const Reviews = ({ movieId }) => {
     fetchReviews();
   }, [movieId]);
 
-  const limitedReviews = reviews; // Обмежте кількість відгуків
+  const limitedReviews = reviews;
 
   if (loading) {
     return <Loader />;

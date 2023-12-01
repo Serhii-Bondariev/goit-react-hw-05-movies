@@ -5,6 +5,7 @@ import Loader from '../../components/Loader/Loader';
 // import { Link } from 'react-router-dom';
 import styles from './Cast.module.css';
 import DefaultPoster from '../../components/DefaultPoster/DefaultPoster';
+import { BASE_URL, API_KEY,MOVIE_POSTER_URL,BASE_LANG } from 'components/constants/Api';
 
 const Cast = ({ movieId }) => {
   const [cast, setCast] = useState([]);
@@ -14,11 +15,11 @@ const Cast = ({ movieId }) => {
     const fetchCast = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits`,
+          `${BASE_URL}/movie/${movieId}/credits`,
           {
             params: {
-              language: 'uk-UA',
-              api_key: '47b0a612b169acf1eb58a4d87a2b2bdd',
+              language: BASE_LANG,
+              api_key: API_KEY,
             },
           }
         );
@@ -49,14 +50,12 @@ const Cast = ({ movieId }) => {
             {actor.profile_path ? <img
               className={styles.actorImg}
               loading="lazy"
-              src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+              src={`${MOVIE_POSTER_URL}${actor.profile_path}`}
               alt={actor.name}
             /> 
               :
               <DefaultPoster movieData={actor} />
-              
             }
-            
             <div className={styles.actorInfo}>
               <p className={styles.actorName}>
                 {' '}

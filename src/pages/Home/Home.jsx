@@ -3,6 +3,7 @@ import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
 import { NavLink } from 'react-router-dom';
 import './Home.module.css';
+import { BASE_LANG , API_KEY, BASE_URL} from 'components/constants/Api';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -12,11 +13,11 @@ const Home = () => {
     const fetchTrendingMovies = async () => {
       try {
         const response = await axios.get(
-          'https://api.themoviedb.org/3/trending/all/day',
+          `${BASE_URL}/trending/all/day`,
           {
             params: {
-              language: 'uk-UA',
-              api_key: '47b0a612b169acf1eb58a4d87a2b2bdd',
+              language: BASE_LANG,
+              api_key: API_KEY,
             },
           }
         );
