@@ -13,7 +13,7 @@ const SearchForm = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.moviesSearch}>
-        <div>Search Movies by Title </div>
+        <div>Search... </div>
         <input
           className={styles.moviesSearchInput}
           type="text"
