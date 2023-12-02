@@ -3,6 +3,7 @@ import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
 import { NavLink } from 'react-router-dom';
 import './Home.module.css';
+import Headtitle from '../../components/Headtitle/Headtitle';
 import { BASE_LANG , API_KEY, BASE_URL} from 'components/constants/Api';
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             params: {
               language: BASE_LANG,
               api_key: API_KEY,
+              include_adult: true,
             },
           }
         );
@@ -39,7 +41,8 @@ const Home = () => {
 
   return (
     <div className="movies_container">
-      <h1 className="movies_home-title">Trending Movies Today</h1>
+    <Headtitle />
+      {/* <h1 className="movies_home-title">Trending Movies Today</h1> */}
       <ul className="movies_list">
         {trendingMovies.map(movie => (
           <li key={movie.id} className="movies_item">

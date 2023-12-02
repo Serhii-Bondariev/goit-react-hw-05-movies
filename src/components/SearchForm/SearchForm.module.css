@@ -13,8 +13,7 @@
 
 .moviesSearchBtn:hover {
   transition: all 0.5s ease;
-
-  color: solid #f8f3f2d6;
+  background-color: #e7e7e7;
   cursor: pointer;
 }
 

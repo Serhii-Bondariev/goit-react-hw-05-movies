@@ -76,22 +76,28 @@ ol {
 
 .movies_item {
   border-radius: 6px;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.42);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.30);
+  box-shadow: 0 4px 30px rgba(138, 138, 138, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
-  width: 300px;
-  height: 600px;
+  width: calc((100% - 50px) / 6);
+  transition: all 0.5s ease;
 }
 
 .movies_item:hover {
-  transform: scale(1.01);
-  transition: all 0.5s ease;
+  transform: scale(1.02);
+  transition: all 1.5s ease;
   cursor: pointer;
+  box-shadow: #2196f3d6 0px 8px 24px;
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+  -webkit-transition: all 1.5s ease;
+  -moz-transition: all 1.5s ease;
+  -ms-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
 }
 
 .movies_info {
@@ -136,6 +142,9 @@ ol {
 .headerLinks:hover {
   color: rgb(177, 162, 162);
   border-radius: 8px;
+  position: relative;
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .active {

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import Reviews from './pages/Reviews/Reviews';
 import Header from './components/Header/Header';
-
+import Footer from './components/Footer/Footer';
 const Home = lazy(() => import('./pages/Home/Home'));
 const Movies = lazy(() => import('./pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('./pages/MovieDetails/MovieDetails'));
@@ -42,7 +42,9 @@ const App = () => (
         element={<Layout><Reviews /></Layout>}
       />
     </Routes>
+    <Footer />
   </Suspense>
+  
 );
 
 export default App;

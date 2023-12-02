@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './Movies.module.css';
 import DefaultPoster from 'components/DefaultPoster/DefaultPoster';
 import SearchForm from 'components/SearchForm/SearchForm';
-import { API_KEY, BASE_LANG, BASE_URL,MOVIE_POSTER_URL } from 'components/constants/Api';
+import { API_KEY, BASE_LANG, BASE_URL,MOVIE_POSTER_URL, } from 'components/constants/Api';
 
 const Movies = () => {
   const [searchResults, setSearchResults] = useState(() => {
@@ -22,6 +22,7 @@ const Movies = () => {
           params: {
             language: BASE_LANG,
             api_key: API_KEY,
+            include_adult: true,
             query: searchQuery,
           },
         }
@@ -31,7 +32,17 @@ const Movies = () => {
       return response.data.results;
     } catch (error) {
       console.error('Error fetching movies:', error);
-      toast.error('Error fetching movies. Please try again.');
+      
+      toast.error('🦄 Error fetching movies. Please try again.', {
+        position: "top-right",
+        autoClose: 1999,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
       return [];
     }
   };
@@ -40,11 +51,36 @@ const Movies = () => {
     e.preventDefault();
 
     if (searchQuery.trim() === '') {
-      toast.warn('Please enter a movie title for search');
+      toast.warn('Please enter a movie title for search', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+      
       return;
     }
 
+
+
     const results = await fetchMovies(searchQuery);
+
+    if (results.length === 0) {
+      toast.error('No movies found. Please change your search query.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    }
     setSearchResults(results);
 
     // Збереження результатів у локальне сховище браузера
@@ -53,7 +89,19 @@ const Movies = () => {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer 
+      
+position="top-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+ />
       <Link className={styles.moviesSearchBtn} to="/">
         Go back
       </Link>
@@ -82,12 +130,7 @@ const Movies = () => {
                     <Link to={`/movies/${movie.id}`} className={styles.movieLink}>
                       <p className={styles.movieTitle}>{movie.title}</p>
                     </Link>
-                    {/* <Link
-                      to={`/movies/${movie.id}/reviews`}
-                      className={styles.movieLink}
-                    >
-                      Read Reviews
-                    </Link> */}
+                 
                   </div>
                   <div className={styles.movieDetailsText}>
                     Release Year: {movie.release_date.slice(0, 4)}
