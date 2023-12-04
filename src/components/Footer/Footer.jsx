@@ -23,7 +23,7 @@ const Footer = () => {
     <li className={styles.socialList}><a className={styles.titleAndLink} href="https://github.com/" target="_blank" rel="noreferrer">
         <i className="fab fa-github" tabindex="0"></i>
       </a></li>
-    <li className={styles.socialList}><a className={styles.titleAndLink} href="www.youtube.com" rel="noreferrer noopener">
+    <li className={styles.socialList}><a className={styles.titleLink} href="www.youtube.com" rel="noreferrer noopener">
         <i className="fab fa-youtube" tabindex="0" target="_blank" rel="noreferrer"></i>
       </a></li>
     <li className={styles.socialList}><a className={styles.titleAndLink} href="www.pinterest.com" rel="noreferrer noopener">

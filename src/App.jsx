@@ -11,9 +11,11 @@ const Cast = lazy(() => import('./'));
 
 const Layout = ({ children }) => (
   <div className="app">
+  <div className="appBacdrop">
     <Header />
     <div className="mainWrapper">
       <main>{children}</main>
+    </div>
     </div>
   </div>
 );
@@ -38,7 +40,7 @@ const App = () => (
         element={<Layout><Cast /></Layout>}
       />
       <Route
-        path="/movies/:movieId/reviews"
+        path="/movies/:movieId.reviews"
         element={<Layout><Reviews /></Layout>}
       />
     </Routes>
