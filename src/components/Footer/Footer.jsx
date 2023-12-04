@@ -7,27 +7,38 @@ import styles from './Footer.module.css';
 const Footer = () => {
     return (
         <div>
-            <footer className={styles.footer}>
-   
+ <footer className={styles.footer}>
+<div className={styles.container}>
+  <p className={styles.titleAndLink}>Follow my social media</p>
+  <ul className={styles.socialList}>
+    <li className={styles.socialList}><a className={styles.titleAndLink} href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+        <i  className={styles.fab} tabindex="0"></i>
+      </a></li>
+    <li className={styles.socialList}><a className={styles.titleAndLink} href="https://codepen.io/" target="_blank" rel="noreferrer">
+        <i className="fab fa-codepen" tabindex="0"></i>
+      </a></li>
+    <li className={styles.socialList}><a className={styles.titleAndLink} href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+        <i className="fab fa-instagram" tabindex="0"></i>
+      </a></li>
+    <li className={styles.socialList}><a className={styles.titleAndLink} href="https://github.com/" target="_blank" rel="noreferrer">
+        <i className="fab fa-github" tabindex="0"></i>
+      </a></li>
+    <li className={styles.socialList}><a className={styles.titleAndLink} href="www.youtube.com" rel="noreferrer noopener">
+        <i className="fab fa-youtube" tabindex="0" target="_blank" rel="noreferrer"></i>
+      </a></li>
+    <li className={styles.socialList}><a className={styles.titleAndLink} href="www.pinterest.com" rel="noreferrer noopener">
+        <i className="fab fa-pinterest" tabindex="0" target="_blank" rel="noreferrer"></i>
+      </a></li>
+  </ul>
+</div>
    
 
-
-<div className={styles.footerSocial}>
-  <p className={styles.footerText}>Follow me:</p>
-</div >
-    <ul className={styles.footerList}>
-      <li className={styles.footerItem}><a className='footerSocLink' href="www.facebook.com" rel='noreferrer noopener' target='_blank'>Facebook</a></li>
-      <li className={styles.footerItem}><a className='footerSocLink' href="www.twitter.com" rel='noreferrer noopener' target='_blank'>Twitter</a></li>
-      <li className={styles.footerItem}><a className='footerSocLink' href="www.instagram.com" rel='noreferrer noopener' target='_blank'>Instagram</a></li>
-      <li className={styles.footerItem}><a className='footerSocLink' href="www.linkedin.com" rel='noreferrer noopener' target='_blank'>LinkedIn</a></li>
-      <li className={styles.footerItem}><a className='footerSocLink' href="https://github.com/Serhii-Bondariev" rel='noreferrer noopener' target='_blank'>GitHub</a></li>
-    </ul>
-    <div>
-    <p className={styles.footerText}>Developed and designed  &copy;<a href="https://github.com/Serhii-Bondariev" rel='noreferrer noopener' target='_blank' >Serhii Bondariev</a></p>
-    </div>
   </footer>
         </div>
     );
 }
 
 export default Footer;
+
+
+
