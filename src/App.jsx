@@ -32,12 +32,12 @@ const App = () => (
         element={<Layout><Movies /></Layout>}
       />
       <Route
-        path="/movies/:movieId"
+        path="/movies/:movieId/*"
         element={<Layout><MovieDetails /></Layout>}
       />
       <Route
-        path="/movies/:movieId/cast"
-        element={<Layout><Cast /></Layout>}
+        path="/movies/:movieId/cast/*"
+        element={<Layout> <Cast /></Layout>}
       />
       <Route
         path="/movies/:movieId.reviews"

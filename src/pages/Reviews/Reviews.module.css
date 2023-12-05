@@ -7,9 +7,9 @@
   margin-bottom: 20px;
   /*Fromhttps:;
     //css.glass*/
-  background: rgba(255, 255, 255, 0.31);
+  
   border-radius: 8px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
   backdrop-filter: blur(5.5px);
 }
 
@@ -22,7 +22,8 @@
 
 .reviewsList {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+
 
   flex-direction: column;
   gap: 20px;
