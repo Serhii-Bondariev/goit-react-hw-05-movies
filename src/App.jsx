@@ -4,6 +4,8 @@ import Loader from './components/Loader/Loader';
 import Reviews from './pages/Reviews/Reviews';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+
+
 const Home = lazy(() => import('./pages/Home/Home'));
 const Movies = lazy(() => import('./pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('./pages/MovieDetails/MovieDetails'));
@@ -13,6 +15,7 @@ const Layout = ({ children }) => (
   <div className="app">
   <div className="appBacdrop">
     <Header />
+   
     <div className="mainWrapper">
       <main>{children}</main>
     </div>
