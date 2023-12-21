@@ -62,16 +62,25 @@ const MovieDetails = () => {
         </Link>
       </div>
       <div>
+      
         <div className={styles.movieDetails}>
+      
+        <div className={styles.movieDetailsImgWrapper}>
           <img
             className={styles.movieDetailsImg}
             src={`${MOVIE_POSTER_URL}${movieDetails.poster_path}`}
             alt={movieDetails.title}
           />
+          <img
+            className={styles.movieDetailsImgBlur}
+            src={`${MOVIE_POSTER_URL}${movieDetails.poster_path}`}
+            alt={movieDetails.title}
+          />
+          </div>
           <div>
             <section className={styles.movieDetailsSection}>
               <ul>
-                <li>
+                <li className={styles.movieDetailsList}>
                   <h2>
                     {movieDetails.original_title}{' '}
                     {movieDetails.release_date &&
