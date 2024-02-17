@@ -4,6 +4,8 @@ import Loader from './components/Loader/Loader';
 import Reviews from './pages/Reviews/Reviews';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+
+
 const Home = lazy(() => import('./pages/Home/Home'));
 const Movies = lazy(() => import('./pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('./pages/MovieDetails/MovieDetails'));
@@ -11,9 +13,12 @@ const Cast = lazy(() => import('./'));
 
 const Layout = ({ children }) => (
   <div className="app">
+  <div className="appBacdrop">
     <Header />
+   
     <div className="mainWrapper">
       <main>{children}</main>
+    </div>
     </div>
   </div>
 );
@@ -30,15 +35,15 @@ const App = () => (
         element={<Layout><Movies /></Layout>}
       />
       <Route
-        path="/movies/:movieId"
+        path="/movies/:movieId/*"
         element={<Layout><MovieDetails /></Layout>}
       />
       <Route
-        path="/movies/:movieId/cast"
-        element={<Layout><Cast /></Layout>}
+        path="/movies/:movieId/cast/*"
+        element={<Layout> <Cast /></Layout>}
       />
       <Route
-        path="/movies/:movieId/reviews"
+        path="/movies/:movieId.reviews"
         element={<Layout><Reviews /></Layout>}
       />
     </Routes>

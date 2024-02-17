@@ -131,14 +131,12 @@ const MovieDetails = () => {
         <div>
           <p className={styles.movieDetailsTitle}>Additional information</p>
           <div>
-
             <nav>
               <button className={styles.movieDetailsBtn} type="button" onClick={toggleCast}>Cast</button>
               <button className={styles.movieDetailsBtn} type="button" onClick={toggleReviews}>Reviews</button>
             </nav>
             {showCast && <Cast movieId={movieId} />}
             {showReviews && <Reviews movieId={movieId} />}
-
           </div>
         </div>
       </div>
