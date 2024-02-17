@@ -2,7 +2,7 @@ import React from 'react';
 import { MOVIE_POSTER_URL } from 'components/constants/Api';
 
 const defaultImg =
-  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+  '/assets/no_img.png';
 
 const MoviePoster = ({ movieData }) => {
   const posterPath = movieData.poster_path
@@ -13,7 +13,7 @@ const MoviePoster = ({ movieData }) => {
     <img
       src={posterPath}
       width={250}
-      
+
       alt="poster"
     />
   );

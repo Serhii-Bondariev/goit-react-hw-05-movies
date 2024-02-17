@@ -5,7 +5,7 @@ import Loader from '../../components/Loader/Loader';
 import Cast from '../Cast/Cast';
 import Reviews from '../Reviews/Reviews';
 import styles from './MovieDetails.module.css';
-import { BASE_URL, API_KEY, BASE_LANG } from 'components/constants/Api';
+import { BASE_URL, API_KEY, BASE_LANG, MOVIE_POSTER_URL,COMPANY_LOGO_URL } from 'components/constants/Api';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -62,16 +62,25 @@ const MovieDetails = () => {
         </Link>
       </div>
       <div>
+
         <div className={styles.movieDetails}>
+
+        <div className={styles.movieDetailsImgWrapper}>
           <img
             className={styles.movieDetailsImg}
-            src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
+            src={`${MOVIE_POSTER_URL}${movieDetails.poster_path}`}
             alt={movieDetails.title}
           />
+          <img
+            className={styles.movieDetailsImgBlur}
+            src={`${MOVIE_POSTER_URL}${movieDetails.poster_path}`}
+            alt={movieDetails.title}
+          />
+          </div>
           <div>
             <section className={styles.movieDetailsSection}>
               <ul>
-                <li>
+                <li className={styles.movieDetailsList}>
                   <h2>
                     {movieDetails.original_title}{' '}
                     {movieDetails.release_date &&
@@ -95,9 +104,6 @@ const MovieDetails = () => {
                     </span>
                   </div>
                   <h4>{movieDetails.tagline}</h4>
-
-
-
                   <div>
                     <h4>Rating:</h4> {movieDetails.vote_average.toFixed(1)}
                   </div>
@@ -108,9 +114,9 @@ const MovieDetails = () => {
 {movieDetails.production_companies.map((company) => (
   company.logo_path && (
     <img
-      key={company.id} 
+      key={company.id}
       className={styles.movieDetailsLogo}
-      src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+      src={`${COMPANY_LOGO_URL}${company.logo_path}`}
       alt={company.name}
     />
   )
@@ -125,12 +131,14 @@ const MovieDetails = () => {
         <div>
           <p className={styles.movieDetailsTitle}>Additional information</p>
           <div>
-            {showCast && <Cast movieId={movieId} />}
-            {showReviews && <Reviews movieId={movieId} />}
+
             <nav>
               <button className={styles.movieDetailsBtn} type="button" onClick={toggleCast}>Cast</button>
               <button className={styles.movieDetailsBtn} type="button" onClick={toggleReviews}>Reviews</button>
             </nav>
+            {showCast && <Cast movieId={movieId} />}
+            {showReviews && <Reviews movieId={movieId} />}
+
           </div>
         </div>
       </div>

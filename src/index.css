@@ -81,7 +81,7 @@ ol {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   overflow: hidden;
-  width: calc((100% - 50px) / 6);
+  width:300px;
   transition: all 0.5s ease;
 }
 
